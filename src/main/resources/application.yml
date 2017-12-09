@@ -1,0 +1,30 @@
+# let thymeleaf support angularjs attribute directive
+spring:
+  application:
+    name: auto-test
+    instance_id: 001
+  jackson:
+      date-format: yyyy-MM-dd HH:mm:ss
+      time-zone: GMT+08
+  profiles:
+      active: local
+server:
+  address: 127.0.0.1
+  port: 8080
+flyway:
+  locations: migration.mysql
+  baseline-on-migrate: true
+#  mvc:
+#    static-path-pattern: /**
+#  resources:
+#    static-locations: classpath:/templates/
+#logging:
+#  level:
+#    org.springframework.jdbc: INFO
+#    org.springframework.transaction: INFO
+#    com.kyeegroup: DEBUG
+#    root: INFO
+#    com.apache.ibatis: INFO
+#    org.apache.tomcat.jdbc.pool.interceptor.SlowQueryReport: INFO
+#  path: ./log
+
