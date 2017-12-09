@@ -1,4 +1,4 @@
-INSERT INTO product_info VALUES (1, "json_server", 1, 1, "lianghong@kyeegroup.com", NULL, NULL);
+INSERT INTO product_info VALUES (1, "json-server", 1, 1, "lianghong@kyeegroup.com", NULL, NULL);
 
 INSERT INTO test_case_detail
 VALUES (1, 1, "GetComments", "get", "", "", "", "", "", "http://localhost", "3000", "comments", NULL, NULL, NULL);
