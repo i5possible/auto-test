@@ -15,6 +15,7 @@ CREATE TABLE product_info (
 DROP TABLE IF EXISTS test_case_detail;
 CREATE TABLE test_case_detail (
   id               INT(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  product_id       INT(11) COMMENT '产品ID',
   api_name         VARCHAR(50) COMMENT '接口名称',
   method           CHAR(8) COMMENT '请求方法',
   json_schema_path VARCHAR(200) COMMENT 'JSON 格式路径',
@@ -24,6 +25,7 @@ CREATE TABLE test_case_detail (
   body             VARCHAR(500) COMMENT '请求体',
   url              VARCHAR(200) COMMENT 'URL前缀',
   port             INT(11) COMMENT '请求端口',
+  api_path         VARCHAR(200) COMMENT 'API路径',
   cached_info      VARCHAR(100) COMMENT '需要缓存起来给其它测试用例使用的数据',
   created_time     TIMESTAMP                    DEFAULT CURRENT_TIMESTAMP
   COMMENT '创建时间',
@@ -42,7 +44,7 @@ CREATE TABLE test_case_triggered (
   test_case_group     INT(10) COMMENT '用例分组',
   parent_test_case_id INT(10) COMMENT '父用例编号，一般用来获取 TOKEN',
   child_test_case_id  INT(10) COMMENT '子用例编号，用来解决链式请求的问题',
-  is_primary          BOOLEAN COMMENT '是否为主用例，测试用例只从主用例开始跑，然后去找父用例或者子用例'
+  is_primary          TINYINT(1) COMMENT '是否为主用例，测试用例只从主用例开始跑，然后去找父用例或者子用例'
 );
 
 DROP TABLE IF EXISTS test_case_group;
