@@ -1,5 +1,3 @@
-#server:
-#    port: 8080
 #flyway:
 #    url: jdbc:mysql://127.0.0.1:3308/auto-test?useUnicode=true&characterEncoding=UTF-8
 #    user: root
@@ -11,12 +9,47 @@
 ##    cleanDisabled: true
 #    sqlMigrationPrefix: V
 #    repeatableSqlMigrationPrefix: R
+server:
+  address: 127.0.0.1
+  port: 8080
+
+flyway:
+  locations: migration.mysql
+  baseline-on-migrate: true
+  enabled: true
+  out-of-order: true
+  encoding: UTF-8
+#  mvc:
+#    static-path-pattern: /**
+#  resources:
+#    static-locations: classpath:/templates/
+#logging:
+#  level:
+#    org.springframework.jdbc: INFO
+#    org.springframework.transaction: INFO
+#    com.kyeegroup: DEBUG
+#    root: INFO
+#    com.apache.ibatis: INFO
+#    org.apache.tomcat.jdbc.pool.interceptor.SlowQueryReport: INFO
+#  path: ./log
+
 spring:
-    datasource:
-        url: jdbc:mysql://127.0.0.1:3308/auto-test?useUnicode=true&characterEncoding=UTF-8
-        driverClassName: com.mysql.jdbc.Driver
-        username: root
-        password: 1qaz!QAZ
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3308/auto-test?useUnicode=true&characterEncoding=UTF-8
+    driverClassName: com.mysql.jdbc.Driver
+    username: root
+    password: 1qaz!QAZ
+  jpa:
+    database: mysql
+    show-sql: true
+    open-in-view: true
+    hibernate:
+      naming:
+        strategy: org.hibernate.cfg.ImprovedNamingStrategy
+      ddl-auto: update
+
+
+
 #
 ##    redis:
 ##        host: localhost
