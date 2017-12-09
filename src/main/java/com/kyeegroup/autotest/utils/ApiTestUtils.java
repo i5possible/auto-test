@@ -3,21 +3,30 @@ package com.kyeegroup.autotest.utils;
 import org.junit.Test;
 import org.junit.runner.JUnitCore;
 import org.junit.runner.Request;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Async;
+import org.springframework.scheduling.annotation.EnableAsync;
 
+import java.util.concurrent.Executor;
 import java.util.concurrent.ThreadPoolExecutor;
+import java.util.stream.IntStream;
 
 import static org.junit.Assert.assertTrue;
 
 /**
- * Created by lianghong on 09/12/2017.
+ *
+ * @author lianghong
+ * @date 09/12/2017
  */
+
+@EnableAsync
 public class ApiTestUtils {
-    public static void runTest() {
-        new Thread(() -> {
-            Request simpleTest = Request.method(
-                    ApiTestUtils.class, "simple_test");
-            new JUnitCore().run(simpleTest);
-        }).start();
+
+    public static void runTest(String param) {
+        Request simpleTest = Request.method(
+                ApiTestUtils.class, "simple_test");
+        new JUnitCore().run(simpleTest);
+        System.out.println("线程：" + Thread.currentThread().getName() + " 执行参数为:" + param);
     }
 
     @Test
@@ -27,6 +36,9 @@ public class ApiTestUtils {
     }
 
     public static void main(String[] args) {
-        ApiTestUtils.runTest();
+        IntStream.range(1,10)
+                .boxed()
+                .map(Object::toString)
+                .forEach(ApiTestUtils::runTest);
     }
 }

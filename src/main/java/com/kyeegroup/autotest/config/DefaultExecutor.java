@@ -9,11 +9,13 @@ import java.util.concurrent.Executor;
 import java.util.concurrent.ThreadPoolExecutor;
 
 /**
- * Created by lianghong on 09/12/2017.
+ *
+ * @author lianghong
+ * @date 09/12/2017
  */
 @Configuration
 @EnableAsync
-public class DefaultExecutorConfig {
+public class DefaultExecutor {
     /** Set the ThreadPoolExecutor's core pool size. */
     private int corePoolSize = 10;
     /** Set the ThreadPoolExecutor's maximum pool size. */
@@ -22,7 +24,7 @@ public class DefaultExecutorConfig {
     private int queueCapacity = 10;
 
     @Bean
-    public Executor myAsync() {
+    public Executor asyncExecutor() {
         ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();
         executor.setCorePoolSize(corePoolSize);
         executor.setMaxPoolSize(maxPoolSize);
