@@ -1,7 +1,7 @@
 package com.kyeegroup.autotest;
 
-import com.kyeegroup.autotest.entity.ProductInfo;
-import com.kyeegroup.autotest.repository.ProductInfoRepository;
+import com.kyeegroup.autotest.entity.Product;
+import com.kyeegroup.autotest.repository.ProductRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,11 +19,11 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class JpaConfigurationTest {
 
     @Autowired
-    private ProductInfoRepository productInfoRepository;
+    private ProductRepository productRepository;
 
     @Test
     public void getProduct() {
-        ProductInfo one = productInfoRepository.findOne(1);
+        Product one = productRepository.findOne(1);
         assertThat(one.getProjectName()).isEqualTo("json-server");
     }
 }

@@ -9,7 +9,6 @@ import java.time.LocalDateTime;
 import java.util.Date;
 
 /**
- *
  * @author lianghong
  * @date 09/12/2017
  */
@@ -20,12 +19,12 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 @Lazy(value = false)
-public class ProductInfo {
+public class Product {
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
-    @Column(name = "project_name",length = 30)
+    @Column(name = "project_name", length = 30)
     private String projectName;
 
     @Column(name = "project_id")
@@ -34,7 +33,7 @@ public class ProductInfo {
     @Column(name = "area_id")
     private Integer areaId;
 
-    @Column(name = "mail_list")
+    @Column(name = "mail_list", length = 200)
     private String mailList;
 
     @CreatedDate

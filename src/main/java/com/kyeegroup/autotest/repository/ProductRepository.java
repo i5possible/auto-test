@@ -1,6 +1,6 @@
 package com.kyeegroup.autotest.repository;
 
-import com.kyeegroup.autotest.entity.ProductInfo;
+import com.kyeegroup.autotest.entity.Product;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Component;
 
@@ -11,6 +11,6 @@ import org.springframework.stereotype.Component;
  */
 
 @Component
-public interface ProductInfoRepository extends CrudRepository<ProductInfo, Integer> {
+public interface ProductRepository extends CrudRepository<Product, Integer> {
 
 }
