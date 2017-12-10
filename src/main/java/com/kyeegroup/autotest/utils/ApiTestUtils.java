@@ -1,16 +1,19 @@
 package com.kyeegroup.autotest.utils;
 
+import io.restassured.RestAssured;
+import io.restassured.response.ValidatableResponse;
 import org.junit.Test;
 import org.junit.runner.JUnitCore;
 import org.junit.runner.Request;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.scheduling.annotation.Async;
-import org.springframework.scheduling.annotation.EnableAsync;
+import org.junit.runner.Result;
 
-import java.util.concurrent.Executor;
-import java.util.concurrent.ThreadPoolExecutor;
+import java.util.Collections;
+import java.util.Map;
 import java.util.stream.IntStream;
 
+import static com.google.common.collect.Maps.newHashMap;
+import static io.restassured.RestAssured.given;
+import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
 import static org.junit.Assert.assertTrue;
 
 /**
@@ -19,7 +22,6 @@ import static org.junit.Assert.assertTrue;
  * @date 09/12/2017
  */
 
-@EnableAsync
 public class ApiTestUtils {
 
     public static void runTest(String param) {
@@ -29,10 +31,42 @@ public class ApiTestUtils {
         System.out.println("线程：" + Thread.currentThread().getName() + " 执行参数为:" + param);
     }
 
+    public static Result runGivenTest(String testName) {
+        return new JUnitCore().run(Request.method(
+                ApiTestUtils.class, testName));
+    }
+
     @Test
     public void simple_test() {
         System.out.println("Called!");
         assertTrue(Boolean.TRUE);
+    }
+
+    @Test
+    public void get_simple_test() {
+        RestAssured.baseURI = "http://localhost";
+        RestAssured.port = Integer.parseInt("3000");
+        // relaxed https
+//        RestAssured.useRelaxedHTTPSValidation();
+        Map<String, String> headers = Collections.emptyMap();
+        Map<String, String> queries = Collections.emptyMap();
+        Map<String, String> paths = newHashMap();
+        paths.put("id","1");
+        String body = "";
+        String API = "/comments/{id}";
+        String jsonSchema = "schema/comment_json_schema.json";
+        ValidatableResponse response = given().
+                body(body).
+                headers(headers).
+                queryParams(queries).
+                pathParams(paths).
+                when().
+                get(API).
+                then().
+                assertThat().
+                body(matchesJsonSchemaInClasspath(jsonSchema))
+                .statusCode(200);
+        System.out.println("sucess!");
     }
 
     public static void main(String[] args) {
