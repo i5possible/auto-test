@@ -1,8 +1,8 @@
 DROP TABLE IF EXISTS product_info;
 CREATE TABLE product_info (
   id           INT(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
-  project_name VARCHAR(30) COMMENT '项目名称',
-  project_id   INT(11) COMMENT '项目编号',
+  product_name VARCHAR(30) COMMENT '产品名称',
+  product_id   INT(11) COMMENT '产品编号',
   area_id      INT(11)                      DEFAULT 1
   COMMENT '区域编号',
   mail_list    VARCHAR(200) COMMENT '邮件列表',
@@ -15,7 +15,7 @@ CREATE TABLE product_info (
 DROP TABLE IF EXISTS test_case_detail;
 CREATE TABLE test_case_detail (
   id               INT(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
-  product_id       INT(11) COMMENT '产品ID',
+  product_id       INT(11) COMMENT '产品编号',
   api_name         VARCHAR(50) COMMENT '接口名称',
   method           CHAR(8) COMMENT '请求方法',
   json_schema_path VARCHAR(200) COMMENT 'JSON 格式路径',
@@ -36,6 +36,7 @@ CREATE TABLE test_case_detail (
 DROP TABLE IF EXISTS test_case_triggered;
 CREATE TABLE test_case_triggered (
   id                  BIGINT(21) PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  product_id          INT(11) COMMENT '产品编号',
   test_case_id        INT(11),
   start_time          DATETIME COMMENT '用例开始执行时间',
   end_time            DATETIME COMMENT '用例执行完成时间',
@@ -50,6 +51,7 @@ CREATE TABLE test_case_triggered (
 DROP TABLE IF EXISTS test_case_group;
 CREATE TABLE test_case_group (
   id           INT(10) PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  product_id   INT(11) COMMENT '产品编号',
   group_name   VARCHAR(20) COMMENT '组名称',
   group_desc   VARCHAR(200) COMMENT '组描述',
   created_time TIMESTAMP                    DEFAULT CURRENT_TIMESTAMP

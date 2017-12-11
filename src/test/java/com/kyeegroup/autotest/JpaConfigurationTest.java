@@ -24,6 +24,6 @@ public class JpaConfigurationTest {
     @Test
     public void getProduct() {
         Product one = productRepository.findOne(1);
-        assertThat(one.getProjectName()).isEqualTo("json-server");
+        assertThat(one.getProductName()).isEqualTo("json-server");
     }
 }

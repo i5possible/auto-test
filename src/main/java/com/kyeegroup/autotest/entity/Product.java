@@ -24,11 +24,11 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
-    @Column(name = "project_name", length = 30)
-    private String projectName;
+    @Column(name = "product_name", length = 30)
+    private String productName;
 
-    @Column(name = "project_id")
-    private Integer projectId;
+    @Column(name = "product_id")
+    private Integer productId;
 
     @Column(name = "area_id")
     private Integer areaId;
