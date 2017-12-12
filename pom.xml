@@ -25,7 +25,13 @@
         <flyway.version>4.2.0</flyway.version>
         <lombok.version>1.16.18</lombok.version>
         <restassured.version>3.0.6</restassured.version>
+        <swagger.version>2.7.0</swagger.version>
     </properties>
+
+    <dependencyManagement>
+        <dependencies>
+        </dependencies>
+    </dependencyManagement>
 
     <dependencies>
         <dependency>
@@ -96,6 +102,16 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <version>${swagger.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+            <version>${swagger.version}</version>
         </dependency>
     </dependencies>
 
