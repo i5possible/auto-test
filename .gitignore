@@ -2,6 +2,7 @@
 target/
 log/
 .mvn
+json/
 
 ### STS ###
 .apt_generated
