@@ -2,6 +2,7 @@ package com.kyeegroup.autotest;
 
 import com.kyeegroup.autotest.entity.Product;
 import com.kyeegroup.autotest.repository.ProductRepository;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  * @author lianghong
  * @date 10/12/2017
  */
+@Ignore
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest
 public class JpaConfigurationTest {
