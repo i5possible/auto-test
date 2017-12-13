@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
  * @date 10/12/2017
  */
 
-@Service(value = "productServiceHardImpl")
+@Service(value = "ProductServiceHardImpl")
 public class ProductServiceHardImpl implements ProductService {
 
     @Autowired

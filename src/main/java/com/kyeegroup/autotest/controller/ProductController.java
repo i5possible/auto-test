@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class ProductController {
 
     @Autowired
-    @Qualifier(value = "productServiceHardImpl")
+    @Qualifier(value = "ProductServiceHardImpl")
     private ProductService productService;
 
     @GetMapping(path = "/{productInfo}")
