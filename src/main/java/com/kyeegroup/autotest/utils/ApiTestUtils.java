@@ -17,7 +17,6 @@ import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInC
 import static org.junit.Assert.assertTrue;
 
 /**
- *
  * @author lianghong
  * @date 09/12/2017
  */
@@ -51,9 +50,9 @@ public class ApiTestUtils {
         Map<String, String> headers = Collections.emptyMap();
         Map<String, String> queries = Collections.emptyMap();
         Map<String, String> paths = newHashMap();
-        paths.put("id","1");
+        paths.put("id", "1");
         String body = "";
-        String API = "/comments/{id}";
+        String api = "/comments/{id}";
         String jsonSchema = "schema/comment_json_schema.json";
         ValidatableResponse response = given().
                 body(body).
@@ -61,7 +60,7 @@ public class ApiTestUtils {
                 queryParams(queries).
                 pathParams(paths).
                 when().
-                get(API).
+                get(api).
                 then().
                 assertThat().
                 body(matchesJsonSchemaInClasspath(jsonSchema))
@@ -70,7 +69,7 @@ public class ApiTestUtils {
     }
 
     public static void main(String[] args) {
-        IntStream.range(1,10)
+        IntStream.range(1, 10)
                 .boxed()
                 .map(Object::toString)
                 .forEach(ApiTestUtils::runTest);

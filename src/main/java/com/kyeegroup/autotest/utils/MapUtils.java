@@ -42,6 +42,6 @@ public class MapUtils {
         return Arrays.stream(string.split(PARAM_SPLIT_TOKEN))
                 .filter(ParamEntry::isLegalParamEntry)
                 .map(ParamEntry::of)
-                .collect(Collectors.toMap(ParamEntry::getKey,ParamEntry::getValue));
+                .collect(Collectors.toMap(ParamEntry::getKey, ParamEntry::getValue));
     }
 }

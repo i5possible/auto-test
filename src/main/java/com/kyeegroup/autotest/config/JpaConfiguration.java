@@ -8,6 +8,6 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
  * @date 10/12/2017
  */
 @EntityScan("com.kyeegroup.autotest.entity")
-@EnableJpaRepositories(basePackages={"com.kyeegroup.autotest.repository"})
+@EnableJpaRepositories(basePackages = {"com.kyeegroup.autotest.repository"})
 public class JpaConfiguration {
 }

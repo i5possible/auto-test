@@ -1,4 +1,4 @@
-package com.kyeegroup.autotest.service.Impl;
+package com.kyeegroup.autotest.service.impl;
 
 import com.kyeegroup.autotest.entity.Product;
 import com.kyeegroup.autotest.repository.ProductRepository;

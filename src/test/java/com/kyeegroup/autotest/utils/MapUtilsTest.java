@@ -26,7 +26,7 @@ public class MapUtilsTest {
                 "        }");
 
         assertThat(map.size()).isEqualTo(6);
-        assertThat(map.keySet()).isEqualTo(Sets.newHashSet("1","title", "time", "type", "img_url", "web_url"));
+        assertThat(map.keySet()).isEqualTo(Sets.newHashSet("1", "title", "time", "type", "img_url", "web_url"));
         assertThat(map.get("type")).isEqualTo("知识");
         assertThat(map.get("1")).isEqualTo("3");
     }
